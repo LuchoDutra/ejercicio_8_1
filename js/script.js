@@ -19,3 +19,18 @@ function showData(dataArray) {
 }
 
 // Escribe el código necesario para realizar el fetch al archivo con los datos y mostrar los estudiantes con la función showData
+
+let promise = fetch(DATA_URL);
+
+console.log(promise);
+
+promise.then(
+  function(response){
+    console.log(response);
+    return response.json();
+  }
+)
+.then(data=>{
+  console.log(data);
+  showData(data.students);
+})
